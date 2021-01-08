@@ -27,8 +27,8 @@ class CustomTransform(BaseEstimator, TransformerMixin):
 
 
 if __name__ == '__main__':
-    clf = joblib.load('./BDSFinalProject-master/model.pkl')
-    X = pd.read_csv('./BDSFinalProject-master/ShoppingData.csv')
+    clf = joblib.load('./model.pkl')
+    X = pd.read_csv('./ShoppingData.csv')
     X['Weekend'] = X['Weekend'].astype(int)
     X = X.drop('Revenue', axis = 1)
     foo = X.iloc[[138]]

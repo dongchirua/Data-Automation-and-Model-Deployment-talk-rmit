@@ -29,7 +29,7 @@ class CustomTransform(BaseEstimator, TransformerMixin):
 app = Flask(__name__)
 
 # inputs
-model_file_name = './BDSFinalProject-master/model.pkl'
+model_file_name = './model.pkl'
 
 # These will be populated at training time
 clf = None

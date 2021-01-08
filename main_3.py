@@ -45,7 +45,7 @@ class CustomTransform(BaseEstimator, TransformerMixin):
         return X[['AvgAdministrative', 'AvgInformational', 'AvgProductRelated']]
 
 # inputs
-model_file_name = './BDSFinalProject-master/model.pkl'
+model_file_name = './model.pkl'
 
 # These will be populated at training time
 clf = joblib.load(model_file_name)

@@ -1,0 +1,123 @@
+openapi: 3.0.1
+info:
+  title: Buyer Behavior Prediction
+  description: Simple example API
+  version: 1.0.1
+servers:
+- url: /
+paths:
+  /predict:
+    post:
+      summary: consume buyer descriptions
+      operationId: main_3.predict
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+              x-body-name: payloads
+        required: true
+      responses:
+        200:
+          description: Return results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        prediction:
+          type: array
+          items:
+            type: integer
+    Request:
+      type: array
+      items:
+        $ref: '#/components/schemas/RequestItem'
+    RequestItem:
+      required:
+      - Administrative
+      - Administrative_Duration
+      - Informational
+      - Informational_Duration
+      - ProductRelated
+      - ProductRelated_Duration
+      - BounceRates
+      - ExitRates
+      - SpecialDay
+      - PageValues
+      - OperatingSystems
+      - Browser
+      - Region
+      - TrafficType
+      - Weekend
+      - Month
+      - VisitorType
+      type: object
+      properties:
+        Administrative:
+          type: integer
+          example: 5
+        Administrative_Duration:
+          type: number
+          format: float
+          example: 36.8666
+        Informational:
+          type: integer
+          example: 0
+        Informational_Duration:
+          type: number
+          format: float
+          example: 0.0
+        ProductRelated:
+          type: integer
+          example: 123
+        ProductRelated_Duration:
+          type: number
+          format: float
+          example: 3886.823333
+        BounceRates:
+          type: number
+          format: float
+          example: 0.002090592
+        ExitRates:
+          type: number
+          format: float
+          example: 0.015563298
+        PageValues:
+          type: number
+          format: float
+          example: 0.0
+        SpecialDay:
+          type: number
+          format: float
+          example: 0.0
+        Month:
+          type: string
+          example: June
+        OperatingSystems:
+          type: number
+          format: float
+          example: 2
+        Browser:
+          type: integer
+          example: 2
+        Region:
+          type: integer
+          example: 1
+        TrafficType:
+          type: integer
+          example: 4
+        VisitorType:
+          type: string
+          enum: 
+            - New_Visitor
+            - Other
+            - Returning_Visitor
+        Weekend:
+          type: integer
+          example: 0
