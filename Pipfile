@@ -16,6 +16,7 @@ numpy = "*"
 jupyterlab = "*"
 seaborn = "*"
 matplotlib = "*"
+mlinsights = "*"
 
 [requires]
 python_version = "3.7"
